@@ -9,14 +9,14 @@ uses
 type
   TForm1 = class(TForm)
     lbl1: TLabel;
-    btn1: TButton;
-    btn2: TButton;
     lbl2: TLabel;
+    btn1: TButton;
     lbl3: TLabel;
     edt1: TEdit;
+    btn2: TButton;
     btn3: TButton;
     dbgrd1: TDBGrid;
-    procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,9 +32,9 @@ uses Unit2;
 
 {$R *.dfm}
 
-procedure TForm1.btn1Click(Sender: TObject);
+procedure TForm1.btn2Click(Sender: TObject);
 begin
-form2.showmodal;
+Form2.ShowModal;
 end;
 
 end.

@@ -13,22 +13,15 @@ object Form2: TForm2
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object lbl1: TLabel
-    Left = 208
-    Top = 264
-    Width = 20
-    Height = 13
-    Caption = 'pnl1'
-  end
   object img1: TImage
     Left = 536
-    Top = 56
-    Width = 289
-    Height = 241
+    Top = 32
+    Width = 281
+    Height = 281
   end
   object dbgrd1: TDBGrid
-    Left = 72
-    Top = 56
+    Left = 120
+    Top = 48
     Width = 320
     Height = 120
     TabOrder = 0
@@ -39,8 +32,8 @@ object Form2: TForm2
     TitleFont.Style = []
   end
   object btn1: TButton
-    Left = 80
-    Top = 216
+    Left = 120
+    Top = 240
     Width = 75
     Height = 25
     Caption = 'Pilih'
@@ -48,8 +41,8 @@ object Form2: TForm2
     OnClick = btn1Click
   end
   object btn2: TButton
-    Left = 184
-    Top = 216
+    Left = 240
+    Top = 240
     Width = 75
     Height = 25
     Caption = 'Scan'
@@ -57,8 +50,8 @@ object Form2: TForm2
     OnClick = btn2Click
   end
   object btn3: TButton
-    Left = 288
-    Top = 216
+    Left = 352
+    Top = 248
     Width = 75
     Height = 25
     Caption = 'Hapus'
@@ -66,13 +59,13 @@ object Form2: TForm2
     OnClick = btn3Click
   end
   object ds1: TDataSource
-    Left = 560
-    Top = 80
+    Left = 552
+    Top = 56
   end
   object VirtualTable1: TVirtualTable
     Options = [voPersistentData, voStored, voSkipUnSupportedFieldTypes]
     Left = 624
-    Top = 80
+    Top = 56
     Data = {03000000000000000000}
   end
   object DelphiTwain1: TDelphiTwain
@@ -90,6 +83,6 @@ object Form2: TForm2
     LibraryLoaded = False
     SourceManagerLoaded = False
     Left = 704
-    Top = 80
+    Top = 56
   end
 end

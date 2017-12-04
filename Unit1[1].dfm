@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 259
-  Top = 142
+  Left = 192
+  Top = 152
   Width = 928
   Height = 480
   Caption = 'Form1'
@@ -14,11 +14,11 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 200
-    Top = 40
-    Width = 128
+    Left = 208
+    Top = 32
+    Width = 147
     Height = 19
-    Caption = 'Data Arsip Nilai'
+    Caption = 'Data Arsip Raport'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -27,54 +27,54 @@ object Form1: TForm1
     ParentFont = False
   end
   object lbl2: TLabel
-    Left = 152
-    Top = 88
+    Left = 96
+    Top = 80
     Width = 21
     Height = 13
     Caption = 'NPM'
   end
   object lbl3: TLabel
-    Left = 152
+    Left = 96
     Top = 160
     Width = 82
     Height = 13
     Caption = 'Nama Mahasiswa'
   end
   object btn1: TButton
-    Left = 152
-    Top = 248
+    Left = 96
+    Top = 112
+    Width = 169
+    Height = 25
+    Caption = 'Cari'
+    TabOrder = 0
+  end
+  object edt1: TEdit
+    Left = 96
+    Top = 192
+    Width = 177
+    Height = 21
+    TabOrder = 1
+    Text = 'edt1'
+  end
+  object btn2: TButton
+    Left = 96
+    Top = 240
     Width = 75
     Height = 25
     Caption = 'Pindai'
-    TabOrder = 0
-    OnClick = btn1Click
+    TabOrder = 2
+    OnClick = btn2Click
   end
-  object btn2: TButton
-    Left = 256
-    Top = 248
+  object btn3: TButton
+    Left = 200
+    Top = 240
     Width = 75
     Height = 25
     Caption = 'Lihat Hasil'
-    TabOrder = 1
-  end
-  object edt1: TEdit
-    Left = 152
-    Top = 192
-    Width = 185
-    Height = 21
-    TabOrder = 2
-    Text = 'edt1'
-  end
-  object btn3: TButton
-    Left = 152
-    Top = 120
-    Width = 177
-    Height = 25
-    Caption = 'Cari'
     TabOrder = 3
   end
   object dbgrd1: TDBGrid
-    Left = 160
+    Left = 96
     Top = 296
     Width = 320
     Height = 120
