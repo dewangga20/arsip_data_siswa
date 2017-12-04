@@ -4,27 +4,22 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, DBGrids, StdCtrls;
+  Dialogs, DB, StdCtrls, Grids, DBGrids, ExtCtrls, DelphiTwain, MemDS,
+  VirtualTable;
 
 type
-  Tguru = class(TForm)
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    edtnip: TEdit;
-    edtnama: TEdit;
-    edtbidang: TEdit;
-    btnbtsimpan: TButton;
-    btnbtedit: TButton;
-    btnbthapus: TButton;
-    btn4: TButton;
+  TForm2 = class(TForm)
     dbgrd1: TDBGrid;
-    procedure btnbtsimpanClick(Sender: TObject);
-    procedure btnbteditClick(Sender: TObject);
-    procedure btnbthapusClick(Sender: TObject);
-    procedure btn4Click(Sender: TObject);
-    procedure dbgrd1CellClick(Column: TColumn);
+    btn1: TButton;
+    btn2: TButton;
+    btn3: TButton;
+    lbl1: TLabel;
+    ds1: TDataSource;
+    VirtualTable1: TVirtualTable;
+    DelphiTwain1: TDelphiTwain;
+    Image1: TImage;
+    procedure btn3Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,71 +27,34 @@ type
   end;
 
 var
-  guru: Tguru;
+  Form2: TForm2;
 
 implementation
 
-uses
-  Unit4;
-
 {$R *.dfm}
 
-procedure Tguru.btnbtsimpanClick(Sender: TObject);
+procedure TForm2.btn3Click(Sender: TObject);
 begin
-try
-  with DataModule4.zqry2 do
+if VirtualTable1.IsEmpty then
+ShowMessage('Data Kosong') else
+VirtualTable1.Delete;
+end;
+
+procedure TForm2.btn2Click(Sender: TObject);
+var
+  sourceIndex : Integer;
+  source : TTwainSource;
+begin
+  DelphiTwain1.LibraryLoaded:= True;
+  DelphiTwain1. SourceManagerLoaded := True;
+  sourceIndex := DelphiTwain1.SelectSource();
+
+  if(sourceIndex <> -1) then
   begin
-    Active:=True;
-    Append;
-    FieldByName('nip').AsString:=edtnip.Text;
-    FieldByName('nama').AsString:=edtnama.Text;
-    FieldByName('bidang').AsString:=edtbidang.Text;
-    Post;
-    ShowMessage('Simpan Berhasil');
+    source :=DelphiTwain1.Source[sourceIndex];
+    source . Loaded := True;
+    source.Enabled := True;
   end;
-  except
-    ShowMessage('gagal menyimpan');
-end;
-
-end;
-
-procedure Tguru.btnbteditClick(Sender: TObject);
-begin
-with DataModule4.zqry2 do
- begin
-   edit;
-    FieldByName('nip').AsString:=edtnip.Text;
-    FieldByName('nama').AsString:=edtnama.Text;
-    FieldByName('bidang').AsString:=edtbidang.Text;
-    post;
- end;
- MessageDlg('data berhasil di edit',mtInformation,[mbOK],0);
-end;
-
-
-
-procedure Tguru.btnbthapusClick(Sender: TObject);
-begin
-DataModule4.zqry2.Delete;
-end;
-
-procedure Tguru.btn4Click(Sender: TObject);
-begin
-edtnip.Clear;
-close;
-end;
-
-procedure Tguru.dbgrd1CellClick(Column: TColumn);
-begin
-with DataModule4.zqry2 do
-begin
-  if IsEmpty then Exit else
-  begin
-    edtnip.Text:=FieldByName('nip').AsString;
-    edtnama.Text:=FieldByName('nama').AsString;
-    edtbidang.Text:=FieldByName('bidang').AsString;
-  end;
-end;
 
 end;
 

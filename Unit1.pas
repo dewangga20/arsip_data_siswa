@@ -4,25 +4,19 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Grids, DBGrids;
+  Dialogs, Grids, DBGrids, StdCtrls;
 
 type
-  Tsiswa = class(TForm)
+  TForm1 = class(TForm)
+    Label2: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    Label1: TLabel;
     lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    edtnis: TEdit;
-    edtnama: TEdit;
+    edt1: TEdit;
+    Button3: TButton;
     dbgrd1: TDBGrid;
-    btnbtsimpan: TButton;
-    btnbtedit: TButton;
-    btnbbthapus: TButton;
-    btnbtbatall: TButton;
-    procedure btnbtsimpanClick(Sender: TObject);
-    procedure btnbteditClick(Sender: TObject);
-    procedure dbgrd1CellClick(Column: TColumn);
-    procedure btnbbthapusClick(Sender: TObject);
-    procedure btnbtbatallClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,65 +24,18 @@ type
   end;
 
 var
-  siswa: Tsiswa;
+  Form1: TForm1;
 
 implementation
 
-uses
-  Unit4;
+uses Unit2;
 
 {$R *.dfm}
 
-procedure Tsiswa.btnbtsimpanClick(Sender: TObject);
+procedure TForm1.Button1Click(Sender: TObject);
 begin
-try
-  with DataModule4.zqry1 do
-  begin
-    Active:=True;
-    Append;
-    FieldByName('nis').AsString:=edtnis.Text;
-    FieldByName('nama').AsString:=edtnama.Text;
-    Post;
-    ShowMessage('Simpan Berhasil');
-  end;
-  except
-    ShowMessage('gagal menyimpan');
+Form2.ShowModal;
 end;
-
-end;
-procedure Tsiswa.btnbteditClick(Sender: TObject);
-begin
- with DataModule4.zqry1 do
- begin
-   edit;
-   FieldByName('nis').AsString:=edtnis.Text;
-    FieldByName('nama').AsString:=edtnama.Text;
-    post;
- end;
- MessageDlg('data berhasil di edit',mtInformation,[mbOK],0);
-end;
-
-procedure Tsiswa.dbgrd1CellClick(Column: TColumn);
-begin
-with DataModule4.zqry1 do
-begin
-  if IsEmpty then Exit else
-  begin
-    edtnis.Text:= FieldByName ('nis').AsString;
-    edtnama.Text:= FieldByName ('nama').AsString;
-  end;
-end;
-
-end;
-procedure Tsiswa.btnbbthapusClick(Sender: TObject);
-begin
-DataModule4.zqry1.Delete;
-end;
-
-procedure Tsiswa.btnbtbatallClick(Sender: TObject);
-begin
-edtnis.Clear;
-close;
-end;
-
 end.
+
+
