@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 212
-  Top = 153
+  Left = 192
+  Top = 124
   Width = 928
   Height = 480
   Caption = 'Form1'
@@ -13,12 +13,12 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label2: TLabel
-    Left = 256
-    Top = 40
-    Width = 143
+  object lbl1: TLabel
+    Left = 312
+    Top = 32
+    Width = 136
     Height = 19
-    Caption = 'Data Arsip Ijazah'
+    Caption = 'Data Arsip SKHU'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -26,58 +26,57 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label1: TLabel
-    Left = 152
-    Top = 80
+  object lbl2: TLabel
+    Left = 80
+    Top = 240
+    Width = 28
+    Height = 13
+    Caption = 'Pindai'
+    OnClick = lbl2Click
+  end
+  object lbl3: TLabel
+    Left = 200
+    Top = 240
+    Width = 48
+    Height = 13
+    Caption = 'Lihat Hasil'
+  end
+  object lbl4: TLabel
+    Left = 72
+    Top = 88
     Width = 21
     Height = 13
     Caption = 'NPM'
   end
-  object lbl1: TLabel
-    Left = 152
-    Top = 160
+  object lbl5: TLabel
+    Left = 80
+    Top = 168
     Width = 82
     Height = 13
     Caption = 'Nama Mahasiswa'
   end
-  object Button1: TButton
-    Left = 184
-    Top = 264
-    Width = 75
-    Height = 25
-    Caption = 'Pndai'
+  object btn1: TButton
+    Left = 72
+    Top = 120
+    Width = 161
+    Height = 33
+    Caption = 'Cari'
     TabOrder = 0
-    OnClick = Button1Click
-  end
-  object Button2: TButton
-    Left = 360
-    Top = 264
-    Width = 75
-    Height = 25
-    Caption = 'Lihat Hasil'
-    TabOrder = 1
   end
   object edt1: TEdit
-    Left = 160
+    Left = 72
     Top = 192
-    Width = 201
+    Width = 121
     Height = 21
-    TabOrder = 2
-  end
-  object Button3: TButton
-    Left = 176
-    Top = 112
-    Width = 177
-    Height = 25
-    Caption = 'Cari'
-    TabOrder = 3
+    TabOrder = 1
+    Text = 'edt1'
   end
   object dbgrd1: TDBGrid
-    Left = 152
-    Top = 304
+    Left = 72
+    Top = 296
     Width = 320
     Height = 120
-    TabOrder = 4
+    TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
